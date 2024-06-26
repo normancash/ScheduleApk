@@ -4,12 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uam.scheduleapk.model.ListAgenda
 import com.uam.scheduleapk.repository.RepositoryAgenda
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class AgendaViewModel: ViewModel() {
+class AgendaViewModel : ViewModel() {
 
     private val repository = RepositoryAgenda()
 
@@ -19,6 +20,7 @@ class AgendaViewModel: ViewModel() {
     init {
         viewModelScope.launch {
             _state.update { it.copy(loading = true) }
+            delay(5000)
             val response = repository.getAll()
             if (response.isSuccess) {
                 _state.update{it.copy(listAgenda = response.getOrNull()!!)}
