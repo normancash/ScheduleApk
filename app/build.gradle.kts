@@ -73,9 +73,9 @@ dependencies {
     implementation("androidx.compose.material3:material3-android:1.2.0-rc01")
 
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
 
     //ViewModel Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
