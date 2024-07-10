@@ -1,9 +1,11 @@
-package com.uam.scheduleapk.compose
+package com.uam.scheduleapk.screen
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -28,14 +30,17 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.uam.scheduleapk.MainCompose
 import com.uam.scheduleapk.viewmodel.LoginViewModel
 import com.uam.scheduleapk.R
-import kotlin.math.log
 
 
 @Composable
-fun LoginCompose(loginViewModel: LoginViewModel, modifier: Modifier) {
+fun LoginScreen(padding: PaddingValues) {
     var passwordVisible by remember { mutableStateOf(false) }
+
+    val loginViewModel : LoginViewModel = viewModel()
 
     val state = loginViewModel.state
 
@@ -49,7 +54,12 @@ fun LoginCompose(loginViewModel: LoginViewModel, modifier: Modifier) {
     LaunchedEffect(key1 = state.mensaje) {
         if (state.mensaje != null){
             Toast.makeText(context, state.mensaje, Toast.LENGTH_LONG).show()
+            if (!state.error) {
+                 val intent = Intent(context, MainCompose::class.java)
+                 context.startActivity(intent)
+            }
             loginViewModel.restartState()
+
         }
     }
 

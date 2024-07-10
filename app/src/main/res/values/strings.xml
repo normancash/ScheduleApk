@@ -3,4 +3,11 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="buttonLogin">Sign in</string>
+    <string name="title_activity_main_compose">MainCompose</string>
+    <string name="nombreCliente">Nombre Cliente</string>
+    <string name="motivo">Motivo</string>
+    <string name="fecha">Fecha</string>
+    <string name="comentarios">Comentario</string>
+    <string name="saveAgenda">Salvar</string>
+    <string name="cancelBoton">Cancel</string>
 </resources>
