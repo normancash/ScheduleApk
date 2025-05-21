@@ -1,5 +1,5 @@
 package com.uam.scheduleapk.util
 
 object Global {
-    val BASE_URL = "http://10.127.248.161:8080/apiAgenda/"
+    val BASE_URL = "http://192.168.220.215:8080/apiAgenda/"
 }
